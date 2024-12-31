@@ -4,3 +4,25 @@
   padding: 2rem;
   text-align: center;
 }
+
+input {
+  border-radius: 5px;
+  margin: 5px;
+  border-style: solid;
+  padding: 10px;
+}
+
+button {
+  border-radius: 5px;
+  margin: 5px;
+  border-style: solid;
+  padding: 10px;
+  background-color: #4945457b;
+}
+
+input:focus {
+  border-radius: 5px;
+  margin: 5px;
+  border-style: solid;
+  padding: 10px;
+}
