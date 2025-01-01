@@ -3,13 +3,15 @@ import "./App.css";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("ws://127.0.0.1:5005");
+const socket = io("ws://2.tcp.eu.ngrok.io:11388");
+
+
 
 function App() {
   function handleSend() {
     const message = document.getElementById("send").value;
     const name = document.getElementById("name").value;
-    const msgToSend = name + ":" + message;
+    const msgToSend = name + " : " + message;
     socket.send(msgToSend);
   }
   useEffect(() => {
@@ -18,6 +20,7 @@ function App() {
       const p = document.createElement("p");
       msgContainer.appendChild(p);
       p.innerText = msg;
+      msgContainer.scrollTop = msgContainer.scrollHeight;
     });
 
     return () => {

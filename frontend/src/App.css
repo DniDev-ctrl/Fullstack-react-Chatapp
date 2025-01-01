@@ -26,3 +26,70 @@ input:focus {
   border-style: solid;
   padding: 10px;
 }
+
+.MainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.MsgContainer {
+  width: 500px;
+  height: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  border-style: solid;
+  border-color: #e2e2e2c9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.MsgContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.SendContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+}
+
+@media (max-width: 600px) {
+  .MainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .MsgContainer {
+    width: 300px;
+    height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-style: solid;
+    border-color: #e2e2e2c9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+
+  .MsgContainer::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+  }
+
+  .SendContainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+}
