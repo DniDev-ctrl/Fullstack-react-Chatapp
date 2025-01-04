@@ -44,14 +44,9 @@ input:focus {
   border-color: #e2e2e2c9;
   border-radius: 5px;
   margin-bottom: 10px;
-  overflow-y: scroll; /* Enable vertical scrolling */
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  padding: 20px;
 }
 
-.MsgContainer::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit browsers */
-}
 
 .SendContainer {
   display: flex;
