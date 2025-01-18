@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { BrowserRouter, Link, Route } from "react-router-dom";
-import { io } from "socket.io-client";
+import { useEffect, useState } from 'react'
+import './App.css'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { io } from 'socket.io-client'
 
-
-export function Home({socket}) {
-  
+export function Home({ socket }) {
   function handleSend() {
-    const message = document.getElementById("send").value;
-    const name = document.getElementById("name").value;
-    const msgToSend = name + " : " + message;
-    socket.send(msgToSend);
+    const message = document.getElementById('send').value
+    const name = document.getElementById('name').value
+    const msgToSend = { message: [name, message] }
+    socket.emit('json', msgToSend)
   }
-  
+
   useEffect(() => {
-    socket.on("message", (msg) => {
-      const msgContainer = document.getElementById("msgContainer");
-      const p = document.createElement("p");
-      msgContainer.appendChild(p);
-      p.innerText = msg;
-      msgContainer.scrollTop = msgContainer.scrollHeight;
-    });
+    socket.on('message', (msg) => {
+      const msgContainer = document.getElementById('msgContainer')
+      const p = document.createElement('p')
+      msgContainer.appendChild(p)
+      p.innerText = msg.message[0] + ': ' + msg.message[1]
+      msgContainer.scrollTop = msgContainer.scrollHeight
+    })
 
     return () => {
-      socket.off("message");
-    };
-  }, []);
+      socket.off('message')
+    }
+  }, [])
 
   return (
     <div className="MainContainer">
@@ -38,5 +36,5 @@ export function Home({socket}) {
         </button>
       </div>
     </div>
-  );
+  )
 }

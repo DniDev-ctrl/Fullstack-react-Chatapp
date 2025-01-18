@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 
-const socket = io("ws://192.168.1.7:5005");
+const socket = io("ws://192.168.1.143:5005");
 
 function App() {
   return (

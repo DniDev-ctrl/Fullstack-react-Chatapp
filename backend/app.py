@@ -17,5 +17,12 @@ def on_message(msg):
     return None
 
 
+@socketio.on('json')
+def handle_json(json):
+    print('received json: ' + str(json))
+    send(json, broadcast=True)
+    return None
+
+
 if '__main__' == __name__:
     socketio.run(app, host='0.0.0.0', port=5005, debug=True)
